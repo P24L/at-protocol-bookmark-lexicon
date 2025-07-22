@@ -1,0 +1,37 @@
+{
+  "name": "at-protocol-bookmark-lexicon",
+  "version": "1.0.0",
+  "description": "AT Protocol lexicon definitions for a decentralized bookmark management system",
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/at-protocol-bookmark-lexicon.git"
+  },
+  "keywords": [
+    "atproto",
+    "at-protocol",
+    "bluesky",
+    "bookmarks",
+    "lexicon",
+    "decentralized"
+  ],
+  "scripts": {
+    "validate": "node scripts/validate-lexicons.js",
+    "generate-types": "node scripts/generate-types.js",
+    "test": "node scripts/test-schemas.js",
+    "build": "npm run validate && npm run generate-types"
+  },
+  "devDependencies": {
+    "@atproto/lexicon": "^0.3.0",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "lexicons/",
+    "types/",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "types/index.js",
+  "types": "types/index.d.ts"
+}

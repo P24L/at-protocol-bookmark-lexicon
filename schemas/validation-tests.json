@@ -1,0 +1,169 @@
+{
+  "bookmarkTests": [
+    {
+      "name": "Valid minimal bookmark",
+      "valid": true,
+      "record": {
+        "$type": "app.hyber-limit.bookmark",
+        "url": "https://example.com",
+        "title": "Example",
+        "createdAt": "2024-01-01T00:00:00Z"
+      }
+    },
+    {
+      "name": "Valid full bookmark",
+      "valid": true,
+      "record": {
+        "$type": "app.hyber-limit.bookmark",
+        "url": "https://example.com/article",
+        "title": "Interesting Article",
+        "description": "A detailed description",
+        "note": "Personal notes about this article",
+        "imageUrl": "https://example.com/image.jpg",
+        "tags": ["tech", "programming"],
+        "listUris": ["at://did:plc:user/app.hyber-limit.bookmark.list/tid"],
+        "pinned": true,
+        "archived": false,
+        "reminder": {
+          "date": "2024-02-01T10:00:00Z",
+          "note": "Review for meeting"
+        },
+        "sourceUri": "at://did:plc:other/app.hyber-limit.bookmark/tid",
+        "encrypted": false,
+        "createdAt": "2024-01-01T00:00:00Z",
+        "updatedAt": "2024-01-02T00:00:00Z"
+      }
+    },
+    {
+      "name": "Invalid - missing required url",
+      "valid": false,
+      "record": {
+        "$type": "app.hyber-limit.bookmark",
+        "title": "Example",
+        "createdAt": "2024-01-01T00:00:00Z"
+      }
+    },
+    {
+      "name": "Invalid - URL too long",
+      "valid": false,
+      "record": {
+        "$type": "app.hyber-limit.bookmark",
+        "url": "https://example.com/" + "a".repeat(2030),
+        "title": "Example",
+        "createdAt": "2024-01-01T00:00:00Z"
+      }
+    },
+    {
+      "name": "Invalid - too many tags",
+      "valid": false,
+      "record": {
+        "$type": "app.hyber-limit.bookmark",
+        "url": "https://example.com",
+        "title": "Example",
+        "tags": ["tag1", "tag2", "tag3", "tag4", "tag5", "tag6", "tag7", "tag8", "tag9", "tag10", "tag11", "tag12", "tag13", "tag14", "tag15", "tag16", "tag17", "tag18", "tag19", "tag20", "tag21"],
+        "createdAt": "2024-01-01T00:00:00Z"
+      }
+    }
+  ],
+  "listTests": [
+    {
+      "name": "Valid private list",
+      "valid": true,
+      "record": {
+        "$type": "app.hyber-limit.bookmark.list",
+        "name": "My List",
+        "visibility": "private",
+        "createdAt": "2024-01-01T00:00:00Z"
+      }
+    },
+    {
+      "name": "Valid collaborative list",
+      "valid": true,
+      "record": {
+        "$type": "app.hyber-limit.bookmark.list",
+        "name": "Team Resources",
+        "description": "Shared team bookmarks",
+        "visibility": "collaborative",
+        "permissions": {
+          "canAdd": ["did:plc:user1", "did:plc:user2"]
+        },
+        "createdAt": "2024-01-01T00:00:00Z"
+      }
+    },
+    {
+      "name": "Valid public list with all fields",
+      "valid": true,
+      "record": {
+        "$type": "app.hyber-limit.bookmark.list",
+        "name": "Best Resources",
+        "description": "Curated list of resources",
+        "color": "#FF5733",
+        "icon": "star",
+        "parent": "at://did:plc:user/app.hyber-limit.bookmark.list/parent",
+        "visibility": "public",
+        "createdAt": "2024-01-01T00:00:00Z",
+        "updatedAt": "2024-01-02T00:00:00Z"
+      }
+    },
+    {
+      "name": "Invalid - missing name",
+      "valid": false,
+      "record": {
+        "$type": "app.hyber-limit.bookmark.list",
+        "visibility": "private",
+        "createdAt": "2024-01-01T00:00:00Z"
+      }
+    },
+    {
+      "name": "Invalid - invalid visibility",
+      "valid": false,
+      "record": {
+        "$type": "app.hyber-limit.bookmark.list",
+        "name": "My List",
+        "visibility": "secret",
+        "createdAt": "2024-01-01T00:00:00Z"
+      }
+    },
+    {
+      "name": "Invalid - bad color format",
+      "valid": false,
+      "record": {
+        "$type": "app.hyber-limit.bookmark.list",
+        "name": "My List",
+        "visibility": "private",
+        "color": "red",
+        "createdAt": "2024-01-01T00:00:00Z"
+      }
+    }
+  ],
+  "embedTests": [
+    {
+      "name": "Valid embed",
+      "valid": true,
+      "record": {
+        "$type": "app.hyber-limit.bookmark.embed",
+        "bookmark": {
+          "uri": "at://did:plc:user/app.hyber-limit.bookmark/tid",
+          "cid": "bafyreigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi"
+        }
+      }
+    },
+    {
+      "name": "Invalid - missing bookmark",
+      "valid": false,
+      "record": {
+        "$type": "app.hyber-limit.bookmark.embed"
+      }
+    },
+    {
+      "name": "Invalid - bookmark missing uri",
+      "valid": false,
+      "record": {
+        "$type": "app.hyber-limit.bookmark.embed",
+        "bookmark": {
+          "cid": "bafyreigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi"
+        }
+      }
+    }
+  ]
+}
