@@ -13,9 +13,9 @@ The repository currently contains design documents but no implemented lexicon fi
 ```
 at-protocol-bookmark-lexicon/
 ├── lexicons/                    # JSON lexicon definitions
-│   ├── app.hyber-limit.bookmark.json
-│   ├── app.hyber-limit.bookmark.list.json
-│   └── app.hyber-limit.bookmark.embed.json
+│   ├── app.hyper-limit.bookmark.json
+│   ├── app.hyper-limit.bookmark.list.json
+│   └── app.hyper-limit.bookmark.embed.json
 ├── docs/                        # Documentation
 ├── examples/                    # Usage examples
 └── schemas/                     # Validation tests
@@ -23,11 +23,11 @@ at-protocol-bookmark-lexicon/
 
 ## Key Lexicons
 
-The project defines three main lexicon types under the `app.hyber-limit` namespace:
+The project defines three main lexicon types under the `app.hyper-limit` namespace:
 
-1. **app.hyber-limit.bookmark** - Core bookmark record containing URL, title, description, tags, etc.
-2. **app.hyber-limit.bookmark.list** - Organizational structure for folders and collaborative/public lists
-3. **app.hyber-limit.bookmark.embed** - Custom embed type for bookmark previews in posts
+1. **app.hyper-limit.bookmark** - Core bookmark record containing URL, title, description, tags, etc.
+2. **app.hyper-limit.bookmark.list** - Organizational structure for folders and collaborative/public lists
+3. **app.hyper-limit.bookmark.embed** - Custom embed type for bookmark previews in posts
 
 ## Architecture & Design
 

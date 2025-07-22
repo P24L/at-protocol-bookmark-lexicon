@@ -4,9 +4,9 @@ This guide provides technical details for implementing the AT Protocol bookmark 
 
 ## Lexicon Overview
 
-The bookmark system consists of three main lexicons under the `app.hyber-limit` namespace:
+The bookmark system consists of three main lexicons under the `app.hyper-limit` namespace:
 
-### 1. app.hyber-limit.bookmark
+### 1. app.hyper-limit.bookmark
 
 The core bookmark record containing:
 - **Required fields**: `url`, `title`, `createdAt`
@@ -14,7 +14,7 @@ The core bookmark record containing:
 - **Privacy support**: `encrypted` flag for client-side encryption
 - **Social features**: `sourceUri` for tracking bookmark origin
 
-### 2. app.hyber-limit.bookmark.list
+### 2. app.hyper-limit.bookmark.list
 
 Organizational structure supporting three visibility modes:
 - **private**: Personal folders/lists
@@ -26,7 +26,7 @@ Key features:
 - Visual customization with `color` and `icon`
 - Permission management via `permissions.canAdd` array
 
-### 3. app.hyber-limit.bookmark.embed
+### 3. app.hyper-limit.bookmark.embed
 
 Enables rich bookmark previews in posts using AT Protocol's embed system.
 
@@ -126,7 +126,7 @@ const post = {
   $type: 'app.bsky.feed.post',
   text: 'Check this out!',
   embed: {
-    $type: 'app.hyber-limit.bookmark.embed',
+    $type: 'app.hyper-limit.bookmark.embed',
     bookmark: {
       uri: bookmarkUri,
       cid: bookmarkCid
@@ -241,7 +241,7 @@ if (!bookmark.encrypted && isPublicList(bookmark.listUris)) {
 
 ```bash
 # Validate individual lexicon
-atproto-lexicon validate lexicons/app.hyber-limit.bookmark.json
+atproto-lexicon validate lexicons/app.hyper-limit.bookmark.json
 
 # Validate all lexicons
 npm run validate

@@ -8,7 +8,7 @@ This document provides practical examples of using the bookmark lexicons in AT P
 
 ```typescript
 const bookmark = {
-  $type: 'app.hyber-limit.bookmark',
+  $type: 'app.hyper-limit.bookmark',
   url: 'https://example.com/article',
   title: 'Interesting Article About AT Protocol',
   description: 'An in-depth look at decentralized social networks',
@@ -22,7 +22,7 @@ const bookmark = {
 // Create the record
 const response = await agent.api.com.atproto.repo.createRecord({
   repo: agent.session.did,
-  collection: 'app.hyber-limit.bookmark',
+  collection: 'app.hyper-limit.bookmark',
   record: bookmark
 });
 ```
@@ -36,7 +36,7 @@ const imageBlob = await agent.api.com.atproto.repo.uploadBlob(imageFile, {
 });
 
 const bookmarkWithImage = {
-  $type: 'app.hyber-limit.bookmark',
+  $type: 'app.hyper-limit.bookmark',
   url: 'https://example.com/visual-guide',
   title: 'Visual Guide to AT Protocol',
   description: 'Step-by-step visual tutorial',
@@ -54,7 +54,7 @@ const encryptedNote = await encryptText(personalNote, userKey);
 const encryptedDescription = await encryptText(description, userKey);
 
 const privateBookmark = {
-  $type: 'app.hyber-limit.bookmark',
+  $type: 'app.hyper-limit.bookmark',
   url: 'https://private-resource.com',
   title: 'Private Resource', // Title remains unencrypted for listing
   description: encryptedDescription,
@@ -70,7 +70,7 @@ const privateBookmark = {
 
 ```typescript
 const privateList = {
-  $type: 'app.hyber-limit.bookmark.list',
+  $type: 'app.hyper-limit.bookmark.list',
   name: 'Work Resources',
   description: 'Tools and documentation for work',
   icon: 'folder',
@@ -81,7 +81,7 @@ const privateList = {
 
 const listResponse = await agent.api.com.atproto.repo.createRecord({
   repo: agent.session.did,
-  collection: 'app.hyber-limit.bookmark.list',
+  collection: 'app.hyper-limit.bookmark.list',
   record: privateList
 });
 ```
@@ -90,7 +90,7 @@ const listResponse = await agent.api.com.atproto.repo.createRecord({
 
 ```typescript
 const publicList = {
-  $type: 'app.hyber-limit.bookmark.list',
+  $type: 'app.hyper-limit.bookmark.list',
   name: 'Best AT Protocol Resources',
   description: 'Curated collection of AT Protocol documentation and tools',
   icon: 'star',
@@ -104,7 +104,7 @@ const publicList = {
 
 ```typescript
 const collaborativeList = {
-  $type: 'app.hyber-limit.bookmark.list',
+  $type: 'app.hyper-limit.bookmark.list',
   name: 'Team Resources',
   description: 'Shared bookmarks for our development team',
   visibility: 'collaborative',
@@ -126,7 +126,7 @@ const listUri = listResponse.uri;
 
 // Then create bookmark with list reference
 const bookmarkInList = {
-  $type: 'app.hyber-limit.bookmark',
+  $type: 'app.hyper-limit.bookmark',
   url: 'https://example.com/resource',
   title: 'Useful Resource',
   listUris: [listUri], // Can belong to multiple lists
@@ -140,7 +140,7 @@ const bookmarkInList = {
 // First, get the bookmark record
 const bookmarkRecord = await agent.api.com.atproto.repo.getRecord({
   repo: agent.session.did,
-  collection: 'app.hyber-limit.bookmark',
+  collection: 'app.hyper-limit.bookmark',
   rkey: bookmarkRkey
 });
 
@@ -149,7 +149,7 @@ const post = {
   $type: 'app.bsky.feed.post',
   text: 'Check out this amazing resource I found!',
   embed: {
-    $type: 'app.hyber-limit.bookmark.embed',
+    $type: 'app.hyper-limit.bookmark.embed',
     bookmark: {
       uri: bookmarkRecord.uri,
       cid: bookmarkRecord.cid
@@ -172,7 +172,7 @@ await agent.api.com.atproto.repo.createRecord({
 ```typescript
 const bookmarks = await agent.api.com.atproto.repo.listRecords({
   repo: agent.session.did,
-  collection: 'app.hyber-limit.bookmark',
+  collection: 'app.hyper-limit.bookmark',
   limit: 50
 });
 ```
@@ -181,7 +181,7 @@ const bookmarks = await agent.api.com.atproto.repo.listRecords({
 
 ```typescript
 // Get all bookmarks in a specific list
-const listUri = 'at://did:plc:user/app.hyber-limit.bookmark.list/abc123';
+const listUri = 'at://did:plc:user/app.hyper-limit.bookmark.list/abc123';
 
 const bookmarksInList = bookmarks.records.filter(record => 
   record.value.listUris?.includes(listUri)
@@ -202,7 +202,7 @@ const taggedBookmarks = bookmarks.records.filter(record =>
 ```typescript
 // Create parent folder
 const parentFolder = {
-  $type: 'app.hyber-limit.bookmark.list',
+  $type: 'app.hyper-limit.bookmark.list',
   name: 'Development',
   visibility: 'private',
   createdAt: new Date().toISOString()
@@ -210,13 +210,13 @@ const parentFolder = {
 
 const parentResponse = await agent.api.com.atproto.repo.createRecord({
   repo: agent.session.did,
-  collection: 'app.hyber-limit.bookmark.list',
+  collection: 'app.hyper-limit.bookmark.list',
   record: parentFolder
 });
 
 // Create child folder
 const childFolder = {
-  $type: 'app.hyber-limit.bookmark.list',
+  $type: 'app.hyper-limit.bookmark.list',
   name: 'JavaScript Resources',
   parent: parentResponse.uri, // Reference to parent
   visibility: 'private',
@@ -234,9 +234,9 @@ const bookmarks = parseBrowserBookmarks(htmlContent);
 for (const bookmark of bookmarks) {
   await agent.api.com.atproto.repo.createRecord({
     repo: agent.session.did,
-    collection: 'app.hyber-limit.bookmark',
+    collection: 'app.hyper-limit.bookmark',
     record: {
-      $type: 'app.hyber-limit.bookmark',
+      $type: 'app.hyper-limit.bookmark',
       url: bookmark.url,
       title: bookmark.title || 'Untitled',
       tags: bookmark.folders || [],
@@ -250,7 +250,7 @@ for (const bookmark of bookmarks) {
 
 ```typescript
 const bookmarkWithReminder = {
-  $type: 'app.hyber-limit.bookmark',
+  $type: 'app.hyper-limit.bookmark',
   url: 'https://example.com/read-later',
   title: 'Article to Read Later',
   reminder: {
@@ -268,7 +268,7 @@ const bookmarkWithReminder = {
 ```typescript
 // Reference the original bookmark
 const savedBookmark = {
-  $type: 'app.hyber-limit.bookmark',
+  $type: 'app.hyper-limit.bookmark',
   url: originalBookmark.url,
   title: originalBookmark.title,
   description: originalBookmark.description,
@@ -289,7 +289,7 @@ const suggestion = {
     parent: { uri: publicListUri, cid: publicListCid }
   },
   embed: {
-    $type: 'app.hyber-limit.bookmark.embed',
+    $type: 'app.hyper-limit.bookmark.embed',
     bookmark: {
       uri: suggestedBookmarkUri,
       cid: suggestedBookmarkCid
@@ -305,7 +305,7 @@ const suggestion = {
 try {
   const response = await agent.api.com.atproto.repo.createRecord({
     repo: agent.session.did,
-    collection: 'app.hyber-limit.bookmark',
+    collection: 'app.hyper-limit.bookmark',
     record: bookmark
   });
 } catch (error) {

@@ -3,9 +3,9 @@
  at-protocol-bookmark-lexicon/
 ├── README.md
 ├── lexicons/
-│   ├── app.hyber-limit.bookmark.json
-│   ├── app.hyber-limit.bookmark.list.json
-│   └── app.hyber-limit.bookmark.embed.json
+│   ├── app.hyper-limit.bookmark.json
+│   ├── app.hyper-limit.bookmark.list.json
+│   └── app.hyper-limit.bookmark.embed.json
 ├── docs/
 │   ├── business-requirements.md
 │   └── implementation-guide.md

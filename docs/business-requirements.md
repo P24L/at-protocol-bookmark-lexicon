@@ -131,15 +131,15 @@ Each list includes:
 
 ### Lexicon Structure
 
-The system uses the `app.hyber-limit` namespace with the following lexicons:
+The system uses the `app.hyper-limit` namespace with the following lexicons:
 
-#### app.hyber-limit.bookmark
+#### app.hyper-limit.bookmark
 The core bookmark record type containing all bookmark data fields, including references to lists.
 
-#### app.hyber-limit.bookmark.list
+#### app.hyper-limit.bookmark.list
 Unified organizational structure serving as folders, collaborative spaces, and public collections. Bookmarks reference lists via URIs rather than lists maintaining bookmark arrays.
 
-#### app.hyber-limit.bookmark.embed
+#### app.hyper-limit.bookmark.embed
 Custom embed type for rich bookmark previews in posts.
 
 ### Data Storage
@@ -220,12 +220,12 @@ Custom embed type for rich bookmark previews in posts.
 
 ## Lexicon JSON Schemas
 
-### app.hyber-limit.bookmark
+### app.hyper-limit.bookmark
 
 ```json
 {
   "lexicon": 1,
-  "id": "app.hyber-limit.bookmark",
+  "id": "app.hyper-limit.bookmark",
   "defs": {
     "main": {
       "type": "record",
@@ -317,12 +317,12 @@ Custom embed type for rich bookmark previews in posts.
 }
 ```
 
-### app.hyber-limit.bookmark.list
+### app.hyper-limit.bookmark.list
 
 ```json
 {
   "lexicon": 1,
-  "id": "app.hyber-limit.bookmark.list",
+  "id": "app.hyper-limit.bookmark.list",
   "defs": {
     "main": {
       "type": "record", 
@@ -389,12 +389,12 @@ Custom embed type for rich bookmark previews in posts.
 }
 ```
 
-### app.hyber-limit.bookmark.embed
+### app.hyper-limit.bookmark.embed
 
 ```json
 {
   "lexicon": 1,
-  "id": "app.hyber-limit.bookmark.embed",
+  "id": "app.hyper-limit.bookmark.embed",
   "defs": {
     "main": {
       "type": "object",
@@ -412,7 +412,7 @@ Custom embed type for rich bookmark previews in posts.
 ```
 
 The `strongRef` type includes:
-- `uri`: The AT Protocol URI of the bookmark (e.g., `at://did:plc:user/app.hyber-limit.bookmark/tid`)
+- `uri`: The AT Protocol URI of the bookmark (e.g., `at://did:plc:user/app.hyper-limit.bookmark/tid`)
 - `cid`: Content identifier ensuring the embed references a specific version of the bookmark
 
 ## Conclusion

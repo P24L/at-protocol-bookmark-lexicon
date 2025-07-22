@@ -4,7 +4,7 @@ A comprehensive lexicon specification for building decentralized bookmark manage
 
 ## Overview
 
-This repository contains the official lexicon definitions for the `app.hyber-limit` bookmark system, enabling users to:
+This repository contains the official lexicon definitions for the `app.hyper-limit` bookmark system, enabling users to:
 
 - 📌 Save and organize web bookmarks with full data ownership
 - 🔒 Create private, encrypted bookmarks with client-side encryption
@@ -30,16 +30,16 @@ npm install
 
 The core lexicon definitions are located in the `lexicons/` directory:
 
-- `app.hyber-limit.bookmark.json` - Core bookmark record type
-- `app.hyber-limit.bookmark.list.json` - List/folder organizational structure  
-- `app.hyber-limit.bookmark.embed.json` - Embed type for bookmark previews
+- `app.hyper-limit.bookmark.json` - Core bookmark record type
+- `app.hyper-limit.bookmark.list.json` - List/folder organizational structure  
+- `app.hyper-limit.bookmark.embed.json` - Embed type for bookmark previews
 
 ### Basic Usage
 
 ```typescript
 // Create a bookmark
 const bookmark = {
-  $type: 'app.hyber-limit.bookmark',
+  $type: 'app.hyper-limit.bookmark',
   url: 'https://example.com',
   title: 'Example Website',
   tags: ['example', 'demo'],
@@ -48,7 +48,7 @@ const bookmark = {
 
 // Create a list
 const list = {
-  $type: 'app.hyber-limit.bookmark.list',
+  $type: 'app.hyper-limit.bookmark.list',
   name: 'My Reading List',
   visibility: 'private',
   createdAt: new Date().toISOString()
